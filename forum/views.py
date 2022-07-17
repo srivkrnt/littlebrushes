@@ -1,19 +1,23 @@
 from django.shortcuts import render, redirect
 from .forms import UserRegistrationForm
 
-from forum.models import Category, Product
+from forum.models import Category, Product, CarouselImages
 from forum.utils import get_category_wise_products, map_category_and_products
 
 
 def index(request):
     categories = Category.objects.all().values()
     product_map = get_category_wise_products(categories)
+    carousel_images = CarouselImages.objects.all().values()
 
     data = map_category_and_products(categories, product_map)
     return render(
         request,
         'forum/index.html',
-        context={'data': data}
+        context={
+            'data': data,
+            'images': carousel_images
+        }
     )
 
 

@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from forum.models import Category, Product
+from forum.models import Category, Product, CarouselImages
 
 
 @admin.register(Category)
@@ -10,4 +10,9 @@ class CategoryAdmin(admin.ModelAdmin):
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(CarouselImages)
+class CarouselImagesAdmin(admin.ModelAdmin):
     pass

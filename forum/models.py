@@ -52,3 +52,11 @@ class Product(models.Model):
 
     def __str__(self):
         return self.product_name
+
+
+class CarouselImages(models.Model):
+    """
+    Model for storing carousel images
+    """
+
+    url = models.URLField(name='url')
