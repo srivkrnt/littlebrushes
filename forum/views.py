@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from .forms import UserRegistrationForm
 
-from forum.models import Category, Product
+from forum.models import Category
 from forum.utils import get_category_wise_products, map_category_and_products
 
 
