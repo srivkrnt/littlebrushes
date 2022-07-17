@@ -1,0 +1,50 @@
+{% extends 'forum/base.html' %}
+
+{% block content %}
+  <div class="display-image-section">
+    {% load static %}
+    {% block image_section %}
+     <img src={% static "slider_1.png" %}/>
+    {% endblock %}
+  </div>
+  <div class="everything-artistic">
+      <div class="theme-block">
+          <p style="font-weight: 1200;font-size: 28px;"> Everything Artistic! </p>
+      </div>
+      <div>
+          <p class="adjusted-p">
+              Welcome to the world of cute, cheerful, and charming merch, curated with love by artists from
+              around the world. Your one stop shop for best stationery, gifting, home decor and more!
+          </p>
+      </div>
+  </div>
+    <div class="all-about-us">
+      <div class="theme-block">
+          <p style="font-weight: 1200;font-size: 28px;"> What we are all about ! </p>
+      </div>
+      <div>
+          <img class="about-us-image" src={%  static "about-1.png" %}/>
+          <img class="about-us-image" src={%  static "about-1.png" %}/>
+          <img class="about-us-image" src={%  static "about-1.png" %}/>
+          <img class="about-us-image" src={%  static "about-1.png" %}/>
+      </div>
+  </div>
+    {%  for detail in data %}
+    <div class="category-container">
+          <div class="theme-block">
+              <p style="font-weight: 1200;font-size: 28px;"> {{ detail.category_name }} </p>
+          </div>
+        <div style="display: flex;flex-direction: row;flex: 1">
+            {% for product in detail.products %}
+                <div class="product-container">
+                    <img class="product-image" src={{ product.image}}/>
+                    <div class="product-detail">
+                        {{ product.product_name }} <br/>
+                        Rs {{ product.price }}
+                    </div>
+                </div>
+            {%  endfor %}
+        </div>
+    </div>
+    {% endfor %}
+{% endblock %}
