@@ -18,6 +18,9 @@ class Category(models.Model):
         max_length=255
     )
 
+    def __str__(self):
+        return self.category_name
+
 
 class Product(models.Model):
     """
@@ -46,3 +49,6 @@ class Product(models.Model):
         name="extra_data",
         help_text="Stores extra data about the product"
     )
+
+    def __str__(self):
+        return self.product_name
