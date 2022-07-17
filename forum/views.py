@@ -1,12 +1,8 @@
 from django.shortcuts import render, redirect
 from .forms import UserRegistrationForm
 
-from forum.models import Category
+from forum.models import Category, Product
 from forum.utils import get_category_wise_products, map_category_and_products
-
-
-def dashboard(request):
-    return render(request, 'forum/dashboard.html')
 
 
 def index(request):
@@ -18,6 +14,32 @@ def index(request):
         request,
         'forum/index.html',
         context={'data': data}
+    )
+
+
+def product_list(request, category_id):
+    category = Category.objects.filter(id=category_id).values().first()
+    products = Product.objects.filter(category_id=category_id).values()
+
+    return render(
+        request,
+        'forum/product_list.html',
+        context={
+            'products': products,
+            'category_name': category.get('category_name')
+        }
+    )
+
+
+def product_detail(request, product_id):
+    product = Product.objects.filter(id=product_id).values().first()
+
+    return render(
+        request,
+        'forum/product_detail.html',
+        context={
+            'product': product
+        }
     )
 
 

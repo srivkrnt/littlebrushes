@@ -1,0 +1,23 @@
+
+{% extends 'forum/base.html' %}
+
+{% block content %}
+    <div class="category-container">
+        <div class="theme-block">
+          <p style="font-weight: 1200;font-size: 28px;"> {{ category_name }} </p>
+        </div>
+        <div style="display: flex;flex-direction: row;flex: 1">
+            {% for product in products %}
+                <div class="product-container">
+                    <a href="/product-detail/{{ product.id }}">
+                        <img class="product-image" src={{ product.image}}/>
+                    </a>
+                    <div class="product-detail">
+                        {{ product.product_name }} <br/>
+                        Rs {{ product.price }}
+                    </div>
+                </div>
+            {%  endfor %}
+        </div>
+    </div>
+{% endblock %}

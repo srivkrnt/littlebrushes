@@ -35,10 +35,15 @@
           <div class="theme-block">
               <p style="font-weight: 1200;font-size: 28px;"> {{ detail.category_name }} </p>
           </div>
+        <button class="view-all-button">
+            <a href="/products/{{ detail.id }}">View All</a>
+        </button>
         <div style="display: flex;flex-direction: row;flex: 1">
             {% for product in detail.products %}
                 <div class="product-container">
-                    <img class="product-image" src={{ product.image}}/>
+                    <a href="/product-detail/{{ product.id }}">
+                        <img class="product-image" src={{ product.image}}/>
+                    </a>
                     <div class="product-detail">
                         {{ product.product_name }} <br/>
                         Rs {{ product.price }}

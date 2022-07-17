@@ -1,0 +1,19 @@
+
+{% extends 'forum/base.html' %}
+
+{% block content %}
+    <div class="product-detail-parent">
+        <p style="font-size: 24px;font-weight: bold">{{ product.product_name }}</p>
+        <div class="product-detail-container" style="margin-top: 40px">
+            <div class="product-detail-image">
+                <img class="product-image" src={{ product.image}}/>
+            </div>
+            <div class="product-detail-desc">
+                <p><b>Name: </b>{{ product.product_name }}</p>
+                <p><b>Product Type: </b>{{ product.product_type }}</p>
+                <p><b>Price: </b>{{ product.price }}</p>
+                <p><b>Description: </b>{{ product.product_desc }}</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
